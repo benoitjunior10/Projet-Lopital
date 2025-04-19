@@ -256,18 +256,6 @@ public class GestionRendezVous {
         }
     }
 
-//    @SuppressWarnings("unchecked")
-//    private static void chargerRendezVousDepuisFichierExcel() {
-//        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
-//            rendezVousL = (Vector<RendezVous>) ois.readObject();
-//            System.out.println("Les rendez-vous ont été chargés depuis le fichier.");
-//        } catch (FileNotFoundException e) {
-//            System.out.println("Aucun fichier trouvé. Un nouveau fichier sera créé lors de la sauvegarde.");
-//        } catch (IOException | ClassNotFoundException e) {
-//            System.err.println("Erreur lors du chargement des rendez-vous : " + e.getMessage());
-//        }
-//    }
-
 
     private static void chargerRendezVousDepuisFichierExcel() {
         try (FileInputStream fis = new FileInputStream(FILE_NAME);
