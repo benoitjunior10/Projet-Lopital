@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "C:\\Users\\AQUARIAN\\Desktop\\Java\\poi-bin-5.2.3\\*.jar",
+        "C:\\Users\\AQUARIAN\\Desktop\\Java\\poi-bin-5.2.3\\lib\\*.jar",
+        "C:\\Users\\AQUARIAN\\Desktop\\Java\\poi-bin-5.2.3\\ooxml-lib\\*.jar"
+    ]
+}
