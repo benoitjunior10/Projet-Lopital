@@ -55,11 +55,72 @@ public class GestionMedecin {
         System.out.print("Prenom du medecin : ");
         String prenom = input.nextLine();
 
-        System.out.print("Sexe du medecin : ");
-        String sexe = input.nextLine();
+        System.out.println("Sexe du médecin : ");
+        System.out.println("1. Masculin");
+        System.out.println("2. Féminin");
+        String sexe;
+        while (true) {
+            int choixSexe = input.nextInt();
+            input.nextLine(); // Consommer la nouvelle ligne
+            if (choixSexe == 1) {
+                sexe = "Masculin";
+                break;
+            } else if (choixSexe == 2) {
+                sexe = "Féminin";
+                break;
+            } else {
+                System.out.println("Choix invalide. Veuillez choisir 1 ou 2.");
+            }
+        }
 
-        System.out.print("Specialisation du medecin : ");
-        String specialisation = input.nextLine();
+        //specialisation
+
+        System.out.println("Specialisation du medecin : ");
+        System.out.println("1. Généraliste");
+        System.out.println("2. Cardiologie");
+        System.out.println("3. Dermatologie");
+        System.out.println("4. Pédiatrie");
+        System.out.println("5. Chirurgie");
+        System.out.println("6. Ophtalmologie");
+        System.out.println("7. Gynécologie");
+        System.out.println("8. Urologie");
+        System.out.println("9. Infectiologie");
+
+        String specialisation;
+        while (true) {
+            int choixSpecialisation = input.nextInt();
+            input.nextLine(); // Consommer la nouvelle ligne
+            if (choixSpecialisation == 1) {
+                specialisation = "Généraliste";
+                break;
+            } else if (choixSpecialisation == 2) {
+                specialisation = "Cardiologie";
+                break;
+            } else if(choixSpecialisation == 3){
+                specialisation = "Dermatologie";
+                break;
+            } else if(choixSpecialisation == 4){
+                specialisation = "Pédiatrie";
+                break;
+            } else if(choixSpecialisation == 5){
+                specialisation = "Chirurgie";
+                break;
+            } else if(choixSpecialisation == 6){
+                specialisation = "Ophtalmologie";
+                break;
+            } else if(choixSpecialisation == 7){
+                specialisation = "Gynécologie";
+                break;
+            } else if(choixSpecialisation == 8){
+                specialisation = "Urologie";
+                break;
+            } else if(choixSpecialisation == 9){
+                specialisation = "Infectiologie";
+                break;
+            } else {
+                System.out.println("Choix invalide. Veuillez choisir 1 jusqu'a 9.");
+            }
+        }
 
         System.out.print("Mot de passe : ");
         String motDePasse = input.nextLine();
