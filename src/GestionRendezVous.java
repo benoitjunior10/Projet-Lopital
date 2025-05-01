@@ -168,6 +168,12 @@ public class GestionRendezVous {
         }
     }
 
+    //kantite rendezvous nan system nan 
+
+    public static int getNombreRendezVous() {
+        return rendezVousL.size();
+    }
+
     public static void modifierRendezVous() {
         System.out.print("ID du rendez-vous à modifier : ");
         String id = input.nextLine();

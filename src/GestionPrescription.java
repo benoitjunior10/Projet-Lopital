@@ -143,6 +143,13 @@ public class GestionPrescription {
         }
     }
 
+
+    //kantite prescription
+
+    public static int getNombrePrescription() {
+        return prescriptionL.size();
+    }
+
     public static void listerPrescriptionsPourMedecin(Medecin medecin) {
         boolean prescriptionsTrouvees = false;
         System.out.println("Prescriptions pour Dr " + medecin.getNom() + " " + medecin.getPrenom() + " :");

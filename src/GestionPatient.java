@@ -105,6 +105,12 @@ public class GestionPatient {
         }
     }
 
+    //kantite patient nan systeme nan 
+
+    public static int getNombrePatients() {
+        return patients.size();
+    }
+
 
     public static void modifierPatient() {
         System.out.print("Identifiant du médecin à modifier : ");

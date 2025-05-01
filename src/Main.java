@@ -78,7 +78,8 @@ public class Main {
             System.out.println("Bienvenue Admin");
             System.out.println("1. Gestion des medecins");
             System.out.println("2. Gestion des patients");
-            System.out.println("3. Deconnexion");
+            System.out.println("3. Afficher les statistiques");
+            System.out.println("4. Deconnexion");
             System.out.print("Faire un choix : ");
             int choix = input.nextInt();
             switch(choix)
@@ -89,7 +90,10 @@ public class Main {
                 case 2: GestionPatient.gestionPatAdm();
                     break;
 
-                case 3: execution = false;
+                case 3: Administrateur.afficherStatistiques();
+                break;
+
+                case 4: execution = false;
                     System.out.println("Deconnecter avec succes. A bientot cher admin");
                     break;
 

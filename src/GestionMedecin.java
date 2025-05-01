@@ -131,7 +131,7 @@ public class GestionMedecin {
         medecins.add(medecin);
         sauvegarderMedecinsDansFichier();
 
-        System.out.print("Médecin ajouté : " + medecin.getNom());
+        System.out.print("Médecin " + medecin.getNom() + " " + medecin.getPrenom() + " ajouté avec succes");
         System.out.println("");
     }
 
@@ -157,6 +157,12 @@ public class GestionMedecin {
                 System.out.println(medecin);
             }
         }
+    }
+
+    //kantite medecin nan systeme nan
+
+    public static int getNombreMedecins() {
+        return medecins.size();
     }
 
     private static void activationOuRevocationDuMedecin()
@@ -226,6 +232,7 @@ public class GestionMedecin {
                     System.out.print("Nouveau nom : ");
                     String nouveauNom = input.nextLine();
                     medecin.setNom(nouveauNom); // Mettre à jour le nom
+                    sauvegarderMedecinsDansFichier();
                     System.out.println("Nom mis à jour avec succès.");
                     break;
 
@@ -233,6 +240,7 @@ public class GestionMedecin {
                     System.out.print("Nouveau prenom : ");
                     String nouveauPrenom = input.nextLine();
                     medecin.setPrenom(nouveauPrenom);
+                    sauvegarderMedecinsDansFichier();
                     System.out.println("Nom mis à jour avec succès.");
                     break;
                 case 3:
@@ -244,6 +252,7 @@ public class GestionMedecin {
                             System.out.println("Erreur : Cet identifiant est déjà utilisé. Veuillez en choisir un autre.");
                         } else {
                             medecin.setId(nouvelIdentifiant); // Mettre à jour l'identifiant
+                            sauvegarderMedecinsDansFichier();
                             System.out.println("Identifiant mis à jour avec succès.");
                             break;
                         }
@@ -252,14 +261,78 @@ public class GestionMedecin {
 
                 case 4:
                     System.out.print("Nouveau specialisation : ");
-                    String nouveauSpecialisation = input.nextLine();
-                    medecin.setSpecialisation(nouveauSpecialisation);
-                    System.out.println("Specialisation mis à jour avec succès.");
+                    System.out.println("1. Généraliste");
+                    System.out.println("2. Cardiologie");
+                    System.out.println("3. Dermatologie");
+                    System.out.println("4. Pédiatrie");
+                    System.out.println("5. Chirurgie");
+                    System.out.println("6. Ophtalmologie");
+                    System.out.println("7. Gynécologie");
+                    System.out.println("8. Urologie");
+                    System.out.println("9. Infectiologie");
+                    System.out.print("Veuillez choisir : ");
+
+                    String specialisation;
+                    while (true) {
+                        int nouveauSpecialisation = input.nextInt();
+                        input.nextLine(); // Consommer la nouvelle ligne
+                        if (nouveauSpecialisation == 1) {
+                            specialisation = "Généraliste";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            System.out.println("Specialisation mis à jour avec succès.");
+                            break;
+                        } else if (nouveauSpecialisation == 2) {
+                            specialisation = "Cardiologie";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            System.out.println("Specialisation mis à jour avec succès.");
+                            break;
+                        } else if(nouveauSpecialisation == 3){
+                            specialisation = "Dermatologie";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            break;
+                        } else if(nouveauSpecialisation == 4){
+                            specialisation = "Pédiatrie";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            break;
+                        } else if(nouveauSpecialisation == 5){
+                            specialisation = "Chirurgie";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            break;
+                        } else if(nouveauSpecialisation == 6){
+                            specialisation = "Ophtalmologie";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            break;
+                        } else if(nouveauSpecialisation == 7){
+                            specialisation = "Gynécologie";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            break;
+                        } else if(nouveauSpecialisation == 8){
+                            specialisation = "Urologie";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            break;
+                        } else if(nouveauSpecialisation == 9){
+                            specialisation = "Infectiologie";
+                            medecin.setSpecialisation(specialisation);
+                            sauvegarderMedecinsDansFichier();
+                            break;
+                        } else {
+                            System.out.println("Choix invalide. Veuillez choisir 1 jusqu'a 9.");
+                        }
+                    }
                     break;
                 case 5:
                     System.out.print("Nouveau mot de passe : ");
                     String nouveauMotDePasse = input.nextLine();
                     medecin.setMotDePasse(nouveauMotDePasse); // Mettre à jour le mot de passe
+                    sauvegarderMedecinsDansFichier();
                     System.out.println("Mot de passe mis à jour avec succès.");
                     break;
                 case 6:
@@ -269,6 +342,19 @@ public class GestionMedecin {
                 default:
                     System.out.println("Choix invalide.");
             }
+        }
+    }
+
+
+
+    public static void supprimerMedecin(String id) {
+        Medecin medecin = trouverMedecinParIdentifiant(id);
+        if (medecin != null) {
+            medecins.remove(medecin);
+            sauvegarderMedecinsDansFichier();
+            System.out.println("Médecin supprimé avec succès.");
+        } else {
+            System.out.println("Médecin non trouvé.");
         }
     }
 
@@ -284,8 +370,9 @@ public class GestionMedecin {
             System.out.println("2. Rechercher un medecin");
             System.out.println("3. Voir la liste des médecins");
             System.out.println("4. Modifier un médecin");
-            System.out.println("5. Révoquer ou rendre actif un médecin");
-            System.out.println("6. Quitter");
+            System.out.println("5. Supprimer un médecin");
+            System.out.println("6. Révoquer ou rendre actif un médecin");
+            System.out.println("7. Quitter");
             System.out.print("Choix : ");
             int choix = input.nextInt();
 
@@ -303,10 +390,18 @@ public class GestionMedecin {
                 case 4: modifierMedecin();
                     break;
 
-                case 5: activationOuRevocationDuMedecin();
+                case 5: 
+                    input.nextLine();
+                    System.out.print("Entrez l'identifiant du médecin à supprimer : ");
+                    String idMedecin = input.nextLine();
+                    GestionMedecin.supprimerMedecin(idMedecin);
+            
+                break;
+
+                case 6: activationOuRevocationDuMedecin();
                     break;
 
-                case 6: execution = false;
+                case 7: execution = false;
                     break;
             }
         }
